@@ -1,0 +1,31 @@
+disk save
+
+Makes sense — more reps at the in-memory CRUD level before adding persistence complexity is a good call. Here's one that's a slightly different shape than Student Management, so you're not just copy-pasting the same pattern blindly.
+
+Project: Contact Book (Console, In-Memory)
+
+Same architecture — Contact (model), ContactService (logic), Main (menu) — but with a twist that'll stretch you a bit differently:
+
+Fields for Contact: id, name, phoneNumber, email, category (e.g. "Family", "Work", "Friend")
+
+What makes this one different from Student Management, on purpose:
+
+Search by name, not just ID — this forces you to do partial/case-insensitive matching (toLowerCase().contains(...)) instead of exact == on an int. Different muscle than ID lookup.
+Duplicate check on phone number instead of email — same logic pattern, but re-derive it yourself rather than copy-paste.
+Filter/group by category — e.g. "show all Work contacts." This is a good intro to filtering a list based on a field value, which is basically what a WHERE clause does in SQL later.
+Sort by name — use Collections.sort() with a Comparator, or List.sort(). This is a small but real concept (Comparable/Comparator) that shows up constantly in interviews and in Spring Data JPA queries later (sort by params).
+
+Ticket, same format as before:
+
+PB-101 — Contact Book (Console Module)
+
+Acceptance Criteria:
+
+Add contact (auto ID, reject duplicate phone number)
+View all contacts
+Search by name (partial match, case-insensitive)
+Update contact by ID
+Delete contact by ID
+Filter contacts by category
+Sort and display contacts alphabetically by name
+Handle invalid input without crashing
