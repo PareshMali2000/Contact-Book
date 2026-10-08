@@ -1,2 +1,0 @@
-1|Arpit|19|Java|arpit@gmail.com
-2|Kedar|27|java|kedar@gmail.com
